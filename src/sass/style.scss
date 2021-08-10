@@ -1,16 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Tourney:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* 
-font-family: 'Tourney', cursive;
-font-family: 'IBM Plex Sans Condensed', sans-serif;
-FONTS <--------------------------------------------
-font-family: 'Cinzel', serif;
-font-family: 'IBM Plex Sans Condensed', sans-serif;
-font-family: 'Style Script', cursive;
-font-family: 'Syne', sans-serif;
-font-family: 'Tourney', cursive;
-------------------------------------------------- 
-*/
+// font-family: 'Tourney', cursive;
+// font-family: 'IBM Plex Sans Condensed', sans-serif;
 
 * {
   margin: 0;
@@ -25,6 +16,19 @@ body {
 
 main {
   border: 1px solid black;
+  width: 100%;
+  height: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+h2 {
+  font-size: 0.6rem;
+}
+
+ul {
   width: 100%;
   height: 100%;
 }
@@ -52,14 +56,13 @@ main {
 }
 
 .img {
-  width: 4rem;
-  height: 2rem;
+  width: 6rem;
+  height: 10rem;
   border: 1px solid blue;
 }
 
 .title {
-  width: 4rem;
-  height: 2rem;
+  width: 6rem;
   border: 1px solid orange;
 }
 
