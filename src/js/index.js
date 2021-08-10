@@ -14,34 +14,9 @@ const makeShowUrl = async (id) => {
 // todo:-----------> Show them on HTML (name + image)
 
 const makeElementsForShow = () => {
-  //   document.querySelector('#list').innerHTML += `<li>`;
-
-  const createLi = document.createElement('li');
-  const createImg = document.createElement('img');
-  const createDiv = document.createElement('div');
-  const createH2 = document.createElement('h2');
-  const createLinkIcon = document.createElement('a');
-  const createIcon = document.createElement('i');
-  const createBtn = document.createElement('input');
-
-  // add class and change some attributes ---
-  createH2.setAttribute('class', 'name');
-  createLinkIcon.setAttribute('class', 'linkIcon');
-  createIcon.setAttribute('class', 'far fa-heart');
-  createLi.setAttribute('class', 'item');
-  createImg.setAttribute('class', 'img');
-  createDiv.setAttribute('class', 'title d-flex center');
-  createBtn.setAttribute('type', 'button');
-  createBtn.setAttribute('value', 'Comments');
-
-  // appending ----------------------
-  createDiv.appendChild(createH2);
-  createLinkIcon.appendChild(createIcon);
-  createDiv.appendChild(createLinkIcon);
-  createLi.appendChild(createImg);
-  createLi.appendChild(createDiv);
-  createLi.appendChild(createBtn);
-  document.querySelector('#list').appendChild(createLi);
+  document.querySelector(
+    '#list',
+  ).innerHTML += '<li class="item"><img class="img"><div class="title d-flex center"><h2 class="name"></h2><a class="linkIcon"><i class="far fa-heart"></i></a></div><input type="button" value="Comments"></li>';
 };
 
 const putShowInside = async (show, num) => {

@@ -4,8 +4,8 @@
   "description": "project",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config  webpack.config.js --watch",
-    "build": "webpack serve --open --config webpack.config.js",
+    "build": "webpack",
+    "start": "webpack serve --open",
     "test": "jest"
   },
   "repository": {
