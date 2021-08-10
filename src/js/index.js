@@ -10,3 +10,34 @@ async function makeShowUrl(id) {
   const temp2 = temp1.json();
   return temp2;
 }
+
+// todo:-----------> Show them on HTML (name + image)
+
+function makeElementsForShow() {
+  const createLi = document.createElement('li');
+  const createImg = document.createElement('img');
+  const createDiv = document.createElement('div');
+  const createH2 = document.createElement('h2');
+  const createLinkIcon = document.createElement('a');
+  const createIcon = document.createElement('i');
+  const createBtn = document.createElement('input');
+
+  // add class and change some attributes ---
+  createH2.setAttribute('class', 'name');
+  createLinkIcon.setAttribute('class', 'linkIcon');
+  createIcon.setAttribute('class', 'far fa-heart');
+  createLi.setAttribute('class', 'item');
+  createImg.setAttribute('class', 'img');
+  createDiv.setAttribute('class', 'title d-flex center');
+  createBtn.setAttribute('type', 'button');
+  createBtn.setAttribute('value', 'Comments');
+
+  // appending ----------------------
+  createDiv.appendChild(createH2);
+  createLinkIcon.appendChild(createIcon);
+  createDiv.appendChild(createLinkIcon);
+  createLi.appendChild(createImg);
+  createLi.appendChild(createDiv);
+  createLi.appendChild(createBtn);
+  document.querySelector('#list').appendChild(createLi);
+}
