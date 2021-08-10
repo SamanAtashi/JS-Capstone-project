@@ -14,6 +14,8 @@ const makeShowUrl = async (id) => {
 // todo:-----------> Show them on HTML (name + image)
 
 const makeElementsForShow = () => {
+  //   document.querySelector('#list').innerHTML += `<li>`;
+
   const createLi = document.createElement('li');
   const createImg = document.createElement('img');
   const createDiv = document.createElement('div');
