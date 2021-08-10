@@ -4,8 +4,13 @@
   "description": "project",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "start": "webpack --config  webpack.config.js --watch",
     "build": "webpack serve --open --config webpack.config.js",
+=======
+    "build": "webpack",
+    "start": "webpack serve --open",
+>>>>>>> c221d715a0b8ee5bb750d0b6db46f9160a470867
     "test": "jest"
   },
   "repository": {
