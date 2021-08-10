@@ -4,16 +4,16 @@ import '../sass/style.scss';
 
 const baseUrl = 'https://api.tvmaze.com/shows/';
 
-async function makeShowUrl(id) {
+const makeShowUrl = async (id) => {
   const temp = fetch(`${baseUrl}${id}`);
   const temp1 = await temp;
   const temp2 = temp1.json();
   return temp2;
-}
+};
 
 // todo:-----------> Show them on HTML (name + image)
 
-function makeElementsForShow() {
+const makeElementsForShow = () => {
   const createLi = document.createElement('li');
   const createImg = document.createElement('img');
   const createDiv = document.createElement('div');
@@ -40,9 +40,9 @@ function makeElementsForShow() {
   createLi.appendChild(createDiv);
   createLi.appendChild(createBtn);
   document.querySelector('#list').appendChild(createLi);
-}
+};
 
-async function putShowInside(show, num) {
+const putShowInside = async (show, num) => {
   // bring them in
   const temp = await show;
   const tempImg = temp.image.original;
@@ -53,7 +53,7 @@ async function putShowInside(show, num) {
   const titleElements = document.querySelectorAll('.name');
   imgElements[num - 1].setAttribute('src', tempImg);
   titleElements[num - 1].innerHTML = tempName;
-}
+};
 
 window.addEventListener('load', () => {
   for (let i = 1; i < 7; i += 1) {
