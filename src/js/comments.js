@@ -54,6 +54,10 @@ export const popUp = (list) => {
 
   const main = document.querySelector('main');
   main.appendChild(popDiv);
+  const cancelPop = document.querySelector('.cancel-pop');
+  cancelPop.addEventListener('click', () => {
+    main.removeChild(popDiv);
+  });
 };
 
 export default createForm;
