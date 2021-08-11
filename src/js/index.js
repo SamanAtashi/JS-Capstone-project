@@ -1,5 +1,5 @@
 import '../sass/style.scss';
-import { addLike } from './likes';
+import { addLike, getLike, showLikesInDOM } from './likes';
 
 // todo:-----------> Get data from API
 
@@ -16,7 +16,7 @@ const makeShowUrl = async (id) => {
 
 const makeElementsForShow = () => {
   document.querySelector('#list').innerHTML
-    += '<li class="item"><img class="img"><div class="title d-flex center"><h2 class="name"></h2><a class="likes"><i class="far fa-heart"></i></a></div><input type="button" value="Comments"></li>';
+    += '<li class="item"><img class="img"><div class="title d-flex center"><h2 class="name"></h2><a class="likes"><i class="far fa-heart"></i></a><p class="likesNum">0</p></div><input type="button" value="Comments"></li>';
 };
 
 const putShowInside = async (show, num) => {
@@ -34,9 +34,21 @@ const putShowInside = async (show, num) => {
 
 window.addEventListener('load', () => {
   for (let i = 1; i < 7; i += 1) {
+    // getting show URL + all details inside it
     const temp = makeShowUrl(i);
+    // populate the DOM
     makeElementsForShow();
+    // add image and name to DOM
     putShowInside(temp, i);
   }
-  addLike(document.querySelectorAll('.likes'));
+  // retrieve Likes and show on DOM
+  const likesList = getLike();
+  showLikesInDOM(likesList);
+  // adding likes (posting likes)
+  document.querySelectorAll('.likes').forEach((like) => {
+    like.addEventListener('click', () => {
+      const itemName = like.previousSibling.innerHTML;
+      addLike(itemName);
+    });
+  });
 });
