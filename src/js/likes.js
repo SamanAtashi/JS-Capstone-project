@@ -27,3 +27,22 @@ export const addLike = async (name) => {
 
   return postingLike.JSON();
 };
+
+export const getLike = async () => {
+  const temp = fetch(likeUrl);
+  const temp1 = await temp;
+  return temp1.json();
+};
+
+export const showLikesInDOM = async (listLikes) => {
+  const list = await listLikes;
+  list.forEach((item) => {
+    const likesName = document.querySelectorAll('.name');
+
+    likesName.forEach((name) => {
+      if (item.item_id === name.innerHTML) {
+        name.nextSibling.nextSibling.innerHTML = item.likes;
+      }
+    });
+  });
+};
