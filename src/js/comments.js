@@ -1,38 +1,30 @@
-// const sendComment = async (newData) => {
-//   const response = await fetch(
-//     'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/0tY3ZECsTgObPiElFJSy/comments',
-//     {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(newData),
-//     }
-//   );
-//   return response.text();
-// };
+const sendComment = async (newData) => {
+  const response = await fetch(
+    'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/0tY3ZECsTgObPiElFJSy/comments',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newData),
+    }
+  );
+  return response.text();
+};
 
-// const submitComment = (id, form) => {
-//   form.addEventListener('submit', (e) => {
-//     const inputName = document.querySelector('.input-name');
-//     const inputComment = document.querySelector('.input-comment');
-//     const newComment = {
-//       item_id: id,
-//       username: inputName.value,
-//       comment: inputComment.value,
-//     };
-//     e.preventDefault();
-//     sendComment(newComment);
-//   });
-// };
-
-// const createForm = (list) => {
-//   const form = document.createElement('form');
-//   form.innerHTML = `
-// `;
-//   list.appendChild(form);
-//   //   submitComment(list.id, form);
-// };
+const submitComment = (id, form) => {
+  form.addEventListener('submit', (e) => {
+    const inputName = document.querySelector('.input-name');
+    const inputComment = document.querySelector('.input-comment');
+    const newComment = {
+      item_id: id,
+      username: inputName.value,
+      comment: inputComment.value,
+    };
+    e.preventDefault();
+    sendComment(newComment);
+  });
+};
 
 const popUp = (list) => {
   const popDiv = document.createElement('section');
@@ -53,8 +45,10 @@ const popUp = (list) => {
     </div> `;
 
   const main = document.querySelector('main');
-  main.appendChild(popDiv);
   const cancelPop = document.querySelector('.cancel-pop');
+  const form = popDiv.querySelector('form');
+  submitComment(list.id, form);
+  main.appendChild(popDiv);
   cancelPop.addEventListener('click', () => {
     main.removeChild(popDiv);
   });
