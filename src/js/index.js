@@ -17,7 +17,7 @@ const makeShowUrl = async (id) => {
 
 const makeElementsForShow = () => {
   document.querySelector(
-    '#list'
+    '#list',
   ).innerHTML += `<li class="item"><img class="img">
             <div class="title d-flex center">
                 <h2 class="name"></h2>
