@@ -1,4 +1,5 @@
 import '../sass/style.scss';
+import { createForm } from './comments';
 
 // todo:-----------> Get data from API
 
@@ -13,28 +14,46 @@ const makeShowUrl = async (id) => {
 
 // todo:-----------> Show them on HTML (name + image)
 
-const makeElementsForShow = async (Promisedata) => {
-  const data = await Promisedata;
-  const list = document.querySelector('#list');
-  const li = document.createElement('li');
-  li.className = 'item d-flex d-col center';
-  li.innerHTML = `
-  <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="${data.image.original}" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">${data.name}</h5>
-    <p class="card-text"> <a class="linkIcon"><i class="far fa-heart"></i></a></p>
-      <input class="comment-btn" type="button" value="Comments" />;
-  </div>
-</div>`;
+const makeElementsForShow = () => {
+  document.querySelector('#list').innerHTML += `
+  <li class="item">
+    <img class="img" />
+    <div class="title d-flex center">
+    <h2 class="name"></h2>
+    <a class="linkIcon"><i class="far fa-heart"></i></a>
+    </div>
+  <input type="button" class="comment" value="Comments" />
+</li>`;
+};
 
-  list.appendChild(li);
+const putShowInside = async (show, num) => {
+  // bring them in
+  const temp = await show;
+  const tempImg = temp.image.original;
+  const tempName = temp.name;
+
+  // put it inside
+  const imgElements = document.querySelectorAll('.img');
+  const titleElements = document.querySelectorAll('.name');
+  const li = document.querySelectorAll('.item');
+
+  imgElements[num - 1].setAttribute('src', tempImg);
+  titleElements[num - 1].innerHTML = tempName;
+  li[num - 1].id = temp.id;
 };
 
 window.addEventListener('load', () => {
   for (let i = 1; i < 7; i += 1) {
     const temp = makeShowUrl(i);
-    makeElementsForShow(temp);
-    // putShowInside(temp, i);
+    makeElementsForShow();
+    putShowInside(temp, i);
   }
+
+  const commentsBtn = document.querySelectorAll('.comment');
+  commentsBtn.forEach((element) => {
+    element.addEventListener('click', () => {
+      const li = element.parentElement;
+      createForm(li);
+    });
+  });
 });
