@@ -1,5 +1,5 @@
 import '../sass/style.scss';
-import createForm from './comments';
+import popUp from './comments';
 
 // todo:-----------> Get data from API
 
@@ -53,7 +53,7 @@ window.addEventListener('load', () => {
   commentsBtn.forEach((element) => {
     element.addEventListener('click', () => {
       const li = element.parentElement;
-      createForm(li);
+      popUp(li);
     });
   });
 });
