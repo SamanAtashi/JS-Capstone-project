@@ -11,3 +11,19 @@ function updateLikeForDOM(name) {
     }
   });
 }
+
+export const addLike = async (name) => {
+  const postingLike = fetch(likeUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      item_id: name,
+    }),
+  });
+
+  updateLikeForDOM(name);
+
+  return postingLike.JSON();
+};
