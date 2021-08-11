@@ -15,8 +15,16 @@ const makeShowUrl = async (id) => {
 // todo:-----------> Show them on HTML (name + image)
 
 const makeElementsForShow = () => {
-  document.querySelector('#list').innerHTML
-    += '<li class="item"><img class="img"><div class="title d-flex center"><h2 class="name"></h2><a class="likes"><i class="far fa-heart"></i></a><p class="likesNum">0</p></div><input type="button" value="Comments"></li>';
+  document.querySelector('#list').innerHTML += `<li class="item"><img class="img">
+            <div class="title d-flex center">
+                <h2 class="name"></h2>
+                <a class="likes">
+                    <i class="far fa-heart"></i>
+                </a>
+                <p class="likesNum">0</p>
+            </div>
+            <input type="button" value="Comments">
+        </li>`;
 };
 
 const putShowInside = async (show, num) => {
