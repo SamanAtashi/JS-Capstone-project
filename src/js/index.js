@@ -17,7 +17,7 @@ const makeElementsForShow = async (Promisedata) => {
   const data = await Promisedata;
   const list = document.querySelector('#list');
   const li = document.createElement('li');
-  li.className = 'item';
+  li.className = 'item d-flex d-col center';
   li.innerHTML = `
   <img class="img" src="${data.image.original}" />
   <div class="title d-flex center">
