@@ -5,9 +5,10 @@ function updateLikeForDOM(name) {
 
   itemNames.forEach((item) => {
     if (item.innerHTML === name) {
-      let tempNum = parseInt(item.nextSibling.nextSibling.innerHTML, 10);
+      const num = item.parentElement.querySelector('p');
+      let tempNum = parseInt(num.innerHTML, 10);
       tempNum += 1;
-      item.nextSibling.nextSibling.innerHTML = tempNum;
+      num.innerHTML = tempNum;
     }
   });
 }
@@ -25,23 +26,26 @@ export const addLike = async (name) => {
 
   updateLikeForDOM(name);
 
-  return postingLike.JSON();
+  return postingLike.json();
 };
 
 export const getLike = async () => {
   const temp = fetch(likeUrl);
   const temp1 = await temp;
-  return temp1.json();
+  const temp2 = temp1.json();
+  return temp2;
 };
 
 export const showLikesInDOM = async (listLikes) => {
   const list = await listLikes;
-  list.forEach((item) => {
-    const likesName = document.querySelectorAll('.name');
 
+  const likesName = document.querySelectorAll('.name');
+
+  list.forEach((item) => {
     likesName.forEach((name) => {
       if (item.item_id === name.innerHTML) {
-        name.nextSibling.nextSibling.innerHTML = item.likes;
+        const select = name.parentElement.querySelector('p');
+        select.innerHTML = item.likes;
       }
     });
   });

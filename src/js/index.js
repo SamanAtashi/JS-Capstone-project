@@ -61,7 +61,7 @@ window.addEventListener('load', () => {
   // adding likes (posting likes)
   document.querySelectorAll('.likes').forEach((like) => {
     like.addEventListener('click', () => {
-      const itemName = like.previousSibling.innerHTML;
+      const itemName = like.parentElement.querySelector('h2').innerHTML;
       addLike(itemName);
     });
   });
