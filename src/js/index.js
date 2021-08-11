@@ -19,14 +19,27 @@ const makeElementsForShow = () => {
   document.querySelector(
     '#list'
   ).innerHTML += `<li class="item"><img class="img">
-            <div class="title p-3 d-flex justify-content-start">
+            <div class="title pr-3 py-3 d-flex justify-content-start">
                 <h2 class="name"></h2>
                 <a class="likes ml-auto">
-                    <i class="far fa-heart"></i>
+                    <i class="fa fa-heart-o"></i>
                 </a>
-                <p class="likesNum">0</p>
+                <p class="likesNum pl-2">0</p>
             </div>
-            <input type="button" class="comment" value="Comments">
+            <button type="button" class="comment"> 
+              <i class="fa fa-comments" aria-hidden="true"></i> Comments 
+            </button>
+            <div class="addition-info d-flex px-3 py-2">
+             <span>
+              <i class="fa fa-clock-o" aria-hidden="true"></i> 
+              <span class="hour"></span>
+             </span>
+             <span class="time ml-auto"></span>
+              </div>
+              <div class="description">
+                <h6>Sumary:</h6>
+              </div>
+
         </li>`;
 };
 
@@ -39,11 +52,18 @@ const putShowInside = async (show, num) => {
   // put it inside
   const imgElements = document.querySelectorAll('.img');
   const titleElements = document.querySelectorAll('.name');
+  const hour = document.querySelectorAll('.hour');
+  const date = document.querySelectorAll('.time');
+  const description = document.querySelectorAll('.description');
+
   const li = document.querySelectorAll('.item');
 
   imgElements[num - 1].setAttribute('src', tempImg);
   titleElements[num - 1].innerHTML = tempName;
   li[num - 1].id = temp.id;
+  hour[num - 1].innerHTML = temp.schedule.time;
+  date[num - 1].innerHTML = `${temp.schedule.days[0]} ${temp.premiered}`;
+  description[num - 1].innerHTML += temp.summary;
 };
 
 window.addEventListener('load', () => {
@@ -62,6 +82,9 @@ window.addEventListener('load', () => {
   document.querySelectorAll('.likes').forEach((like) => {
     like.addEventListener('click', () => {
       const itemName = like.parentElement.querySelector('h2').innerHTML;
+      like.querySelector('i').classList.remove('fa-heart-o');
+      like.querySelector('i').classList.add('fa-heart');
+
       addLike(itemName);
     });
   });
