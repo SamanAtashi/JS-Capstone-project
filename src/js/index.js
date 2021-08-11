@@ -1,5 +1,5 @@
 import '../sass/style.scss';
-import { createForm } from './comments';
+import createForm from './comments';
 
 // todo:-----------> Get data from API
 

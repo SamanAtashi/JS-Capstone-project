@@ -1,16 +1,4 @@
-export const createForm = (list) => {
-  const form = document.createElement('form');
-  form.innerHTML = `
-  <form>
-    <input type="text" class="form-control input-name" placeholder="Your Name">
-    <input type="text" class="form-control input-comment" placeholder=" Your Comment">
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>;`;
-  list.appendChild(form);
-  submitComment('item1Anderson', form);
-};
-
-const comment = async (newData) => {
+const sendComment = async (newData) => {
   const response = await fetch(
     'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/0tY3ZECsTgObPiElFJSy/comments',
     {
@@ -24,7 +12,7 @@ const comment = async (newData) => {
   return response.text();
 };
 
-export const submitComment = (id, form) => {
+const submitComment = (id, form) => {
   form.addEventListener('submit', (e) => {
     const inputName = document.querySelector('.input-name');
     const inputComment = document.querySelector('.input-comment');
@@ -34,7 +22,20 @@ export const submitComment = (id, form) => {
       comment: inputComment.value,
     };
     e.preventDefault();
-    comment(newComment);
+    sendComment(newComment);
   });
 };
-export default comment;
+
+const createForm = (list) => {
+  const form = document.createElement('form');
+  form.innerHTML = `
+  <form>
+    <input type="text" class="form-control input-name" placeholder="Your Name">
+    <input type="text" class="form-control input-comment" placeholder=" Your Comment">
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>;`;
+  list.appendChild(form);
+  submitComment('item1Anderson', form);
+};
+
+export default createForm;
