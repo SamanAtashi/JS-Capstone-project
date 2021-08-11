@@ -7,7 +7,7 @@ const sendComment = async (newData) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(newData),
-    },
+    }
   );
   return response.text();
 };
@@ -45,7 +45,7 @@ const popUp = (list) => {
     </div> `;
 
   const main = document.querySelector('main');
-  const cancelPop = document.querySelector('.cancel-pop');
+  const cancelPop = popDiv.querySelector('.cancel-pop');
   const form = popDiv.querySelector('form');
   submitComment(list.id, form);
   main.appendChild(popDiv);
