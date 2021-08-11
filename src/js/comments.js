@@ -7,7 +7,7 @@ const sendComment = async (newData) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(newData),
-    },
+    }
   );
   return response.text();
 };

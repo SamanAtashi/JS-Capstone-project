@@ -1,4 +1,5 @@
-const likeUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/0tY3ZECsTgObPiElFJSy/likes';
+const likeUrl =
+  'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/0tY3ZECsTgObPiElFJSy/likes';
 
 function updateLikeForDOM(name) {
   const itemNames = document.querySelectorAll('.name');
@@ -25,8 +26,6 @@ export const addLike = async (name) => {
   });
 
   updateLikeForDOM(name);
-
-  return postingLike.json();
 };
 
 export const getLike = async () => {

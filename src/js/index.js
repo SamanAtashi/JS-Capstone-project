@@ -17,11 +17,11 @@ const makeShowUrl = async (id) => {
 
 const makeElementsForShow = () => {
   document.querySelector(
-    '#list',
+    '#list'
   ).innerHTML += `<li class="item"><img class="img">
-            <div class="title d-flex center">
+            <div class="title p-3 d-flex justify-content-start">
                 <h2 class="name"></h2>
-                <a class="likes">
+                <a class="likes ml-auto">
                     <i class="far fa-heart"></i>
                 </a>
                 <p class="likesNum">0</p>

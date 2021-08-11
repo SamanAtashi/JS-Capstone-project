@@ -1,3 +1,57 @@
+$secondry-color: #f9002b;
+
+body {
+  background-color: black;
+  color: #858fa2;
+
+  header {
+    .logo {
+      color: $primary;
+      font-size: 40px;
+      padding: 20px 0;
+    }
+
+    h1 {
+      font-family: 'Tourney', cursive;
+      font-weight: 400;
+      margin-bottom: 0;
+      background-color: $secondry-color;
+      background-image: linear-gradient(45deg, #f9002b, #1111f3);
+      background-size: 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  main {
+    padding: 100px 50px;
+    .img {
+      width: 300px;
+      height: 400px;
+    }
+
+    #list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+
+      li {
+        border: 1px solid white;
+
+        .comment {
+          border: 1px solid #f9002b;
+          background: transparent;
+          color: #ffff;
+          font-size: 0.8rem;
+          padding: 6px 18px;
+          font-weight: 600;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+}
+
 .popUp {
   height: 100vh;
   position: fixed;
