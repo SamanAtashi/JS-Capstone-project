@@ -19,12 +19,15 @@ const makeElementsForShow = async (Promisedata) => {
   const li = document.createElement('li');
   li.className = 'item d-flex d-col center';
   li.innerHTML = `
-  <img class="img" src="${data.image.original}" />
-  <div class="title d-flex center">
-    <h2 class="name">${data.name}</h2>
-    <a class="linkIcon"><i class="far fa-heart"></i></a>
+  <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="${data.image.original}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">${data.name}</h5>
+    <p class="card-text"> <a class="linkIcon"><i class="far fa-heart"></i></a></p>
+      <input class="comment-btn" type="button" value="Comments" />;
   </div>
-  <input type="button" value="Comments" />`;
+</div>`;
+
   list.appendChild(li);
 };
 
