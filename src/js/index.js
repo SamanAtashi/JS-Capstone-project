@@ -27,7 +27,7 @@ const makeElementsForShow = () => {
                 <p class="likesNum pl-2">0</p>
             </div>
             <button type="button" class="comment"> 
-              <i class="fa fa-comments" aria-hidden="true"></i> Comments 
+              <i class="fa fa-comments" ></i> Comments 
             </button>
             <div class="addition-info d-flex px-3 py-2">
              <span>

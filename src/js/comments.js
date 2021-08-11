@@ -31,30 +31,48 @@ const submitComment = (id, form) => {
 const popUp = async (li) => {
   const popDiv = document.createElement('section');
   popDiv.className = 'popUp';
-  const movie = await makeShowUrl(li.id);
+  const movies = await makeShowUrl(li.id);
   popDiv.innerHTML = `
      <div class="w-100 container">
          <i class="cancel-pop fa fa-times"></i>
-        <div class="w-75 container d-flex justify-content-center align-items-center flex-column">
-          <div class="pop-img"><img class="w-100 h-100" src="${movie.image.original}" alt="popUp" /></div>
-          <div class="pop-info d-flex flex-columm">
-            <div class="d-flex justify-content-between">
-              <div>
-              <span>Genres</span>
-                <ul>
-
-                </ul>
-              </div>
-              <div></div>
+        <div class="w-100 container d-flex justify-content-center align-items-center flex-column">
+          <div class="pop-summary d-flex justify-content-between w-100">
+             <div class="pop-img pr-5">
+              <img class="w-100 h-100" src="${movies.image.original}" />
             </div>
-            <div class="d-flex justify-content-between"> </div>
+          <div class="sam-p">
+          <h6>Summary: </h6>
+            ${movies.summary}
           </div>
 
-         <form >
-         <h2 classs="">Add a comment<h2>
-             <input type="text" class="form-control input-name" placeholder="Your Name">
-             <textarea class="form-control input-comment" placeholder=" Your Comment"> </textarea>
-            <button type="submit" class="btn btn-primary">Comment</button>
+          </div>
+          <div class="pop-info py-3 d-flex  w-100 flex-column">
+          <h2 class="mx-auto">${movies.name}</h2>
+            <div class="d-flex w-100 justify-content-between">
+              <div>
+              <span>Genres :   ${movies.genres
+                .map((movie) => `<span>${movie}</span>`)
+                .join(', ')}</span>              
+              </div>
+              <div>language: ${movies.language}</div>
+            </div>
+            <div class="d-flex justify-content-between">
+                <div>
+                  Schedule : ${movies.schedule.days}, ${movies.schedule.time} 
+                </div>
+                <div>
+                  TV: ${movies.network.name}, ${movies.network.country.name}
+                </div>
+            </div>
+          </div>
+
+         <form class="w-100 d-flex flex-column align-items-center">
+         <h2 classs="">Add a comment</h2>
+             <input type="text" class="input-name" placeholder="Your Name">
+             <textarea name="comment" class="input-comment" placeholder="Your Comment"></textarea>
+            <button type="submit" class="btn btn-primary"> 
+              <i class="fa fa-comments" ></i> Comment 
+            </button>
          </form>
         </div>
     </div> `;
