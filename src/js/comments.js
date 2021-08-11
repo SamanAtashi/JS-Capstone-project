@@ -1,3 +1,5 @@
+import makeShowUrl from '.';
+
 const sendComment = async (newData) => {
   const response = await fetch(
     'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/0tY3ZECsTgObPiElFJSy/comments',
@@ -26,19 +28,32 @@ const submitComment = (id, form) => {
   });
 };
 
-const popUp = (list) => {
+const popUp = async (li) => {
   const popDiv = document.createElement('section');
-  popDiv.className = 'bg-dark popUp';
-  const img = list.querySelector('.img');
+  popDiv.className = 'popUp';
+  const movie = await makeShowUrl(li.id);
   popDiv.innerHTML = `
      <div class="w-100 container">
          <i class="cancel-pop fa fa-times"></i>
-        <div class="w-75 container">
-          <div class="pop-img"><img class="w-100" src="${img.src}" alt="popUp" /></div>
-          <div class="pop-info"></div>
+        <div class="w-75 container d-flex justify-content-center align-items-center flex-column">
+          <div class="pop-img"><img class="w-100 h-100" src="${movie.image.original}" alt="popUp" /></div>
+          <div class="pop-info d-flex flex-columm">
+            <div class="d-flex justify-content-between">
+              <div>
+              <span>Genres</span>
+                <ul>
+
+                </ul>
+              </div>
+              <div></div>
+            </div>
+            <div class="d-flex justify-content-between"> </div>
+          </div>
+
          <form >
+         <h2 classs="">Add a comment<h2>
              <input type="text" class="form-control input-name" placeholder="Your Name">
-            <input type="text" class="form-control input-comment" placeholder=" Your Comment">
+             <textarea class="form-control input-comment" placeholder=" Your Comment"> </textarea>
             <button type="submit" class="btn btn-primary">Comment</button>
          </form>
         </div>

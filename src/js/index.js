@@ -96,3 +96,5 @@ window.addEventListener('load', () => {
     });
   });
 });
+
+export default makeShowUrl;
