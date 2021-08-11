@@ -1,5 +1,6 @@
 import '../sass/style.scss';
 import { addLike, getLike, showLikesInDOM } from './likes';
+import popUp from './comments';
 
 // todo:-----------> Get data from API
 
@@ -15,7 +16,9 @@ const makeShowUrl = async (id) => {
 // todo:-----------> Show them on HTML (name + image)
 
 const makeElementsForShow = () => {
-  document.querySelector('#list').innerHTML += `<li class="item"><img class="img">
+  document.querySelector(
+    '#list'
+  ).innerHTML += `<li class="item"><img class="img">
             <div class="title d-flex center">
                 <h2 class="name"></h2>
                 <a class="likes">
@@ -23,7 +26,7 @@ const makeElementsForShow = () => {
                 </a>
                 <p class="likesNum">0</p>
             </div>
-            <input type="button" value="Comments">
+            <input type="button" class="comment" value="Comments">
         </li>`;
 };
 
@@ -36,8 +39,11 @@ const putShowInside = async (show, num) => {
   // put it inside
   const imgElements = document.querySelectorAll('.img');
   const titleElements = document.querySelectorAll('.name');
+  const li = document.querySelectorAll('.item');
+
   imgElements[num - 1].setAttribute('src', tempImg);
   titleElements[num - 1].innerHTML = tempName;
+  li[num - 1].id = temp.id;
 };
 
 window.addEventListener('load', () => {
@@ -57,6 +63,13 @@ window.addEventListener('load', () => {
     like.addEventListener('click', () => {
       const itemName = like.previousSibling.innerHTML;
       addLike(itemName);
+    });
+  });
+  const commentsBtn = document.querySelectorAll('.comment');
+  commentsBtn.forEach((element) => {
+    element.addEventListener('click', () => {
+      const li = element.parentElement;
+      popUp(li);
     });
   });
 });
