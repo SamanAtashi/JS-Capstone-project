@@ -35,7 +35,7 @@ const createForm = (list) => {
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>;`;
   list.appendChild(form);
-  submitComment('item1Anderson', form);
+  submitComment(list.id, form);
 };
 
 export default createForm;
