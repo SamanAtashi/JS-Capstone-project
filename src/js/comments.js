@@ -1,4 +1,4 @@
-import makeShowUrl from '.';
+import makeShowUrl from './getShow';
 
 const sendComment = async (newData) => {
   const response = await fetch(
@@ -9,7 +9,7 @@ const sendComment = async (newData) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(newData),
-    }
+    },
   );
   return response.text();
 };
@@ -51,8 +51,8 @@ const popUp = async (li) => {
             <div class="d-flex w-100 justify-content-between">
               <div>
               <span>Genres :   ${movies.genres
-                .map((movie) => `<span>${movie}</span>`)
-                .join(', ')}</span>              
+    .map((movie) => `<span>${movie}</span>`)
+    .join(', ')}</span>              
               </div>
               <div>language: ${movies.language}</div>
             </div>
@@ -80,10 +80,11 @@ const popUp = async (li) => {
   const main = document.querySelector('main');
   const cancelPop = popDiv.querySelector('.cancel-pop');
   const form = popDiv.querySelector('form');
-  submitComment(list.id, form);
+  submitComment(li.id, form);
   main.appendChild(popDiv);
   cancelPop.addEventListener('click', () => {
     main.removeChild(popDiv);
+    main.parentElement.parentElement.classList.remove('pop-html');
   });
 };
 

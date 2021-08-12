@@ -1,17 +1,9 @@
 import '../sass/style.scss';
 import { addLike, getLike, showLikesInDOM } from './likes';
 import popUp from './comments';
+import makeShowUrl from './getShow';
 
 // todo:-----------> Get data from API
-
-const baseUrl = 'https://api.tvmaze.com/shows/';
-
-const makeShowUrl = async (id) => {
-  const temp = fetch(`${baseUrl}${id}`);
-  const temp1 = await temp;
-  const temp2 = temp1.json();
-  return temp2;
-};
 
 // todo:-----------> Show them on HTML (name + image)
 
@@ -31,7 +23,7 @@ const makeElementsForShow = () => {
             </button>
             <div class="addition-info d-flex px-3 py-2">
              <span>
-              <i class="fa fa-clock-o" aria-hidden="true"></i> 
+              <i class="add-icon fa fa-clock-o" aria-hidden="true"></i> 
               <span class="hour"></span>
              </span>
              <span class="time ml-auto"></span>
@@ -93,8 +85,7 @@ window.addEventListener('load', () => {
     element.addEventListener('click', () => {
       const li = element.parentElement;
       popUp(li);
+      document.querySelector('html').classList.add('pop-html');
     });
   });
 });
-
-export default makeShowUrl;
