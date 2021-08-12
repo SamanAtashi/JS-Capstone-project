@@ -10,7 +10,7 @@ const sendComment = async (newData) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(newData),
-    },
+    }
   );
   return response.text();
 };
@@ -21,7 +21,7 @@ const submitComment = (id, form) => {
     const inputComment = document.querySelector('.input-comment');
     const commentN = document.querySelector('.commentN');
     const num = parseInt(commentN.innerHTML, 10) + 1;
-    commentN.innerHTML = num;
+    commentN.innerHTML = num || '';
     const newComment = {
       item_id: id,
       username: inputName.value,
@@ -32,7 +32,8 @@ const submitComment = (id, form) => {
   });
 };
 
-const URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/0tY3ZECsTgObPiElFJSy/comments?item_id=';
+const URL =
+  'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/0tY3ZECsTgObPiElFJSy/comments?item_id=';
 const getComments = async (id) => {
   const res = await fetch(`${URL}${id}`);
   const comments = await res.text();
@@ -46,7 +47,7 @@ const popUp = async (li) => {
   const response = await getComments(li.id);
   const comments = JSON.parse(response);
   const commentNum = commentCounter(comments);
-  const lastComment = comments[commentNum - 1];
+  const lastComment = comments[commentNum - 1] || [];
 
   popDiv.innerHTML = `
      <div class="w-100 container">
@@ -67,8 +68,8 @@ const popUp = async (li) => {
             <div class="d-flex w-100 justify-content-between">
               <div>
               <span>Genres :   ${movies.genres
-    .map((movie) => `<span>${movie}</span>`)
-    .join(', ')}</span>              
+                .map((movie) => `<span>${movie}</span>`)
+                .join(', ')}</span>              
               </div>
               <div>language: ${movies.language}</div>
             </div>
@@ -85,10 +86,10 @@ const popUp = async (li) => {
           <div class="all-comments">
                 <span>Comments</span> 
                 <span class="text-secondery mx-2" ><i class="fa fa-comments" ></i></span> 
-                <span class="commentN text-white">${commentNum}</span>
+                <span class="commentN text-white">${commentNum || ''}</span>
                 <p class="last-com font-italic">Last comment: ${
-  lastComment.creation_date
-} </p>
+                  lastComment.creation_date || 'No comment'
+                } </p>
                 
           </div>
 
