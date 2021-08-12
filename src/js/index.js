@@ -23,7 +23,7 @@ const makeElementsForShow = () => {
             <button type="button" class="comment"> 
               <i class="fa fa-comments" ></i> Comments 
             </button>
-            <div class="addition-info d-flex px-3 py-2">
+            <div class="addition-info d-flex align-items-center mx-auto">
              <span>
               <i class="add-icon fa fa-clock-o" aria-hidden="true"></i> 
               <span class="hour"></span>

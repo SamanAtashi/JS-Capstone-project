@@ -8,7 +8,9 @@
 
 [iCinema]()
 
-![screenshot]()
+|     |   Home  | Pop-up  |     |
+| --- | --------| ------- | --- |
+| | ![127 0 0 1_5500_dist_index html (11)](https://user-images.githubusercontent.com/65068771/129188234-7b023a52-916b-4d17-b651-75b56074b4e6.png) | ![127 0 0 1_5500_dist_index html (10)](https://user-images.githubusercontent.com/65068771/129188301-a9b28ea2-29d7-44cb-9fe4-eebc4e5e4fc3.png) | |
 
 ## Installation
 

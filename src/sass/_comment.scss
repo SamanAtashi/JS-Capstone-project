@@ -123,6 +123,7 @@ $secondry-color: #f9002b;
 body {
   background-color: black;
   color: #858fa2;
+  // transform:
 
   header {
     .logo {
@@ -239,7 +240,10 @@ body {
   font-size: 14px;
   position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
+  padding: 10px 20px;
+  margin-top: 10px;
 
   .add-icon {
     font-size: 20px;

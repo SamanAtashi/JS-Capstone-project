@@ -21,7 +21,7 @@ const submitComment = (id, form) => {
     const inputComment = document.querySelector('.input-comment');
     const commentN = document.querySelector('.commentN');
     const num = parseInt(commentN.innerHTML, 10) + 1;
-    commentN.innerHTML = num;
+    commentN.innerHTML = num || '';
     const newComment = {
       item_id: id,
       username: inputName.value,
@@ -46,7 +46,7 @@ const popUp = async (li) => {
   const response = await getComments(li.id);
   const comments = JSON.parse(response);
   const commentNum = commentCounter(comments);
-  const lastComment = comments[commentNum - 1];
+  const lastComment = comments[commentNum - 1] || [];
 
   popDiv.innerHTML = `
      <div class="w-100 container">
@@ -85,9 +85,9 @@ const popUp = async (li) => {
           <div class="all-comments">
                 <span>Comments</span> 
                 <span class="text-secondery mx-2" ><i class="fa fa-comments" ></i></span> 
-                <span class="commentN text-white">${commentNum}</span>
+                <span class="commentN text-white">${commentNum || ''}</span>
                 <p class="last-com font-italic">Last comment: ${
-  lastComment.creation_date
+  lastComment.creation_date || 'No comment'
 } </p>
                 
           </div>
