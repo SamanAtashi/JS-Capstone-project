@@ -6,7 +6,7 @@
 
 # live Demo
 
-[iCinema]()
+[iCinema](https://samanatashi.github.io/JS-Capstone-project/dist/)
 
 |     |   Home  | Pop-up  |     |
 | --- | --------| ------- | --- |
