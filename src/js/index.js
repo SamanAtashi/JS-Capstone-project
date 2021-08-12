@@ -1,33 +1,39 @@
 import '../sass/style.scss';
 import { addLike, getLike, showLikesInDOM } from './likes';
 import popUp from './comments';
+import makeShowUrl from './getShow';
 import itemCounter from './itemCounter';
 
-// todo:-----------> Get data from API
-
-const baseUrl = 'https://api.tvmaze.com/shows/';
-
 const itemsNum = [];
-
-const makeShowUrl = async (id) => {
-  const temp = fetch(`${baseUrl}${id}`);
-  const temp1 = await temp;
-  const temp2 = temp1.json();
-  return temp2;
-};
+// todo:-----------> Get data from API
 
 // todo:-----------> Show them on HTML (name + image)
 
 const makeElementsForShow = () => {
-  document.querySelector('#list').innerHTML += `<li class="item"><img class="img">
-            <div class="title d-flex center">
+  document.querySelector(
+    '#list',
+  ).innerHTML += `<li class="item"><img class="img">
+            <div class="title pr-3 py-3 d-flex justify-content-start">
                 <h2 class="name"></h2>
-                <a class="likes">
-                    <i class="far fa-heart"></i>
+                <a class="likes ml-auto">
+                    <i class="fa fa-heart-o"></i>
                 </a>
-                <p class="likesNum">0</p>
+                <p class="likesNum pl-2">0</p>
             </div>
-            <input type="button" class="comment" value="Comments">
+            <button type="button" class="comment"> 
+              <i class="fa fa-comments" ></i> Comments 
+            </button>
+            <div class="addition-info d-flex px-3 py-2">
+             <span>
+              <i class="add-icon fa fa-clock-o" aria-hidden="true"></i> 
+              <span class="hour"></span>
+             </span>
+             <span class="time ml-auto"></span>
+              </div>
+              <div class="description">
+                <h6>Sumary:</h6>
+              </div>
+
         </li>`;
 };
 
@@ -40,11 +46,18 @@ const putShowInside = async (show, num) => {
   // put it inside
   const imgElements = document.querySelectorAll('.img');
   const titleElements = document.querySelectorAll('.name');
+  const hour = document.querySelectorAll('.hour');
+  const date = document.querySelectorAll('.time');
+  const description = document.querySelectorAll('.description');
+
   const li = document.querySelectorAll('.item');
 
   imgElements[num - 1].setAttribute('src', tempImg);
   titleElements[num - 1].innerHTML = tempName;
   li[num - 1].id = temp.id;
+  hour[num - 1].innerHTML = temp.schedule.time;
+  date[num - 1].innerHTML = `${temp.schedule.days[0]} ${temp.premiered}`;
+  description[num - 1].innerHTML += temp.summary;
 };
 
 window.addEventListener('load', () => {
@@ -57,6 +70,7 @@ window.addEventListener('load', () => {
     putShowInside(temp, i);
     itemsNum.push(temp);
   }
+
   itemCounter(itemsNum);
   // retrieve Likes and show on DOM
   const likesList = getLike();
@@ -65,6 +79,9 @@ window.addEventListener('load', () => {
   document.querySelectorAll('.likes').forEach((like) => {
     like.addEventListener('click', () => {
       const itemName = like.parentElement.querySelector('h2').innerHTML;
+      like.querySelector('i').classList.remove('fa-heart-o');
+      like.querySelector('i').classList.add('fa-heart');
+
       addLike(itemName);
     });
   });
@@ -73,6 +90,7 @@ window.addEventListener('load', () => {
     element.addEventListener('click', () => {
       const li = element.parentElement;
       popUp(li);
+      document.querySelector('html').classList.add('pop-html');
     });
   });
 });

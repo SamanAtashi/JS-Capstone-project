@@ -11,123 +11,125 @@
   box-sizing: border-box;
 }
 
-*::selection {
-  background-color: rgba(245, 174, 41, 0.5);
-}
+// *::selection {
+//   background-color: rgba(245, 174, 41, 0.5);
+// }
 
 body {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-
-main {
-  border: 1px solid black;
-  width: 100%;
 }
 
 li {
   list-style: none;
 }
 
-h1 {
-  font-family: 'Tourney', cursive;
-  font-weight: 400;
-  margin-bottom: 0;
+.text-secondery {
+  color: $secondry-color;
 }
 
-h1:hover {
-  background-color: #f3ec78;
-  background-image: linear-gradient(45deg, #f3ec78, #af4261);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.last-com {
+  font-size: 14px;
 }
 
-h2 {
-  font-size: 0.6rem;
-}
+// h1 {
+//   font-family: 'Tourney', cursive;
+//   font-weight: 400;
+//   margin-bottom: 0;
+// }
 
-ul {
-  width: 100%;
-  height: 100%;
-}
+// h1:hover {
+//   background-color: #f3ec78;
+//   background-image: linear-gradient(45deg, #f3ec78, #af4261);
+//   background-size: 100%;
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+// }
 
-a {
-  color: rgb(48, 48, 48);
-  text-decoration: none;
-  cursor: pointer;
-}
+// h2 {
+//   font-size: 0.6rem;
+// }
 
-header {
-  align-items: center;
-  border-bottom: 1px solid gray;
-}
+// ul {
+//   width: 100%;
+//   height: 100%;
+// }
 
-.item {
-  border: 1px solid red;
-  width: calc(100% / 3);
-}
+// a {
+//   color: rgb(48, 48, 48);
+//   text-decoration: none;
+//   cursor: pointer;
+// }
 
-.d-flex {
-  display: flex;
-}
+// header {
+//   align-items: center;
+//   border-bottom: 1px solid gray;
+// }
 
-.d-col {
-  flex-direction: column;
-}
+// .item {
+//   border: 1px solid red;
+//   width: calc(100% / 3);
+// }
 
-.f-wrap {
-  flex-wrap: wrap;
-}
+// .d-flex {
+//   display: flex;
+// }
 
-.center {
-  justify-content: center;
-  align-items: center;
-}
+// .d-col {
+//   flex-direction: column;
+// }
 
-.img {
-  width: 6rem;
-  height: 10rem;
-  border: 1px solid blue;
-}
+// .f-wrap {
+//   flex-wrap: wrap;
+// }
 
-.title {
-  width: 6rem;
-  border: 1px solid orange;
-}
+// .center {
+//   justify-content: center;
+//   align-items: center;
+// }
 
-.m-1 {
-  margin: 1rem;
-}
+// .img {
+//   width: 6rem;
+//   height: 10rem;
+//   border: 1px solid blue;
+// }
 
-.p-1 {
-  padding: 1rem;
-}
+// .title {
+//   width: 6rem;
+//   border: 1px solid orange;
+// }
 
-.fa-video {
-  font-size: 3rem;
-}
+// .m-1 {
+//   margin: 1rem;
+// }
 
-.fa-video:hover {
-  background-image: linear-gradient(45deg, #f19d88, #ff8624);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+// .p-1 {
+//   padding: 1rem;
+// }
 
-.head-link {
-  margin-left: 3rem;
-  font-family: 'Tourney', cursive;
-  font-weight: 600;
-}
+// .fa-video {
+//   font-size: 3rem;
+// }
 
-.head-link:hover {
-  background-image: linear-gradient(45deg, #f39178, #af4261);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+// .fa-video:hover {
+//   background-image: linear-gradient(45deg, #f19d88, #ff8624);
+//   background-size: 100%;
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+// }
+
+// .head-link {
+//   margin-left: 3rem;
+//   font-family: 'Tourney', cursive;
+//   font-weight: 600;
+// }
+
+// .head-link:hover {
+//   background-image: linear-gradient(45deg, #f39178, #af4261);
+//   background-size: 100%;
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+// }

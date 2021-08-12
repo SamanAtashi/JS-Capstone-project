@@ -25,8 +25,7 @@ export const addLike = async (name) => {
   });
 
   updateLikeForDOM(name);
-
-  return postingLike.json();
+  return (await postingLike).json();
 };
 
 export const getLike = async () => {
