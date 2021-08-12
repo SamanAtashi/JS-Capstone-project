@@ -1,10 +1,13 @@
 import '../sass/style.scss';
 import { addLike, getLike, showLikesInDOM } from './likes';
 import popUp from './comments';
+import itemCounter from './itemCounter';
 
 // todo:-----------> Get data from API
 
 const baseUrl = 'https://api.tvmaze.com/shows/';
+
+const itemsNum = [];
 
 const makeShowUrl = async (id) => {
   const temp = fetch(`${baseUrl}${id}`);
@@ -16,9 +19,7 @@ const makeShowUrl = async (id) => {
 // todo:-----------> Show them on HTML (name + image)
 
 const makeElementsForShow = () => {
-  document.querySelector(
-    '#list',
-  ).innerHTML += `<li class="item"><img class="img">
+  document.querySelector('#list').innerHTML += `<li class="item"><img class="img">
             <div class="title d-flex center">
                 <h2 class="name"></h2>
                 <a class="likes">
@@ -54,7 +55,9 @@ window.addEventListener('load', () => {
     makeElementsForShow();
     // add image and name to DOM
     putShowInside(temp, i);
+    itemsNum.push(temp);
   }
+  itemCounter(itemsNum);
   // retrieve Likes and show on DOM
   const likesList = getLike();
   showLikesInDOM(likesList);
