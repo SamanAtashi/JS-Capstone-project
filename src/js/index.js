@@ -8,7 +8,7 @@ const itemsNum = [];
 
 const makeElementsForShow = () => {
   document.querySelector(
-    '#list'
+    '#list',
   ).innerHTML += `<li class="item"><img class="img">
             <div class="title pr-3 py-3 d-flex justify-content-start">
                 <h2 class="name"></h2>
