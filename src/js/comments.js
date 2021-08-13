@@ -46,7 +46,6 @@ const popUp = async (li) => {
   const response = await getComments(li.id);
   const comments = JSON.parse(response);
   const commentNum = commentCounter(comments);
-  const lastComment = comments[commentNum - 1] || [];
 
   popDiv.innerHTML = `
      <div class="w-100 container">
@@ -86,12 +85,18 @@ const popUp = async (li) => {
                 <span>Comments</span> 
                 <span class="text-secondery mx-2" ><i class="fa fa-comments" ></i></span> 
                 <span class="commentN text-white">${commentNum || ''}</span>
-                <p class="last-com font-italic">Last comment: ${
-  lastComment.creation_date || 'No comment'
-} </p>
-                
+                <ul class="last-com ">
+  ${
+  comments
+    .map((comment) => `<li>
+    <span>${comment.creation_date}</span> 
+    <span class="font-weight-bold">${comment.username || 'no name'}:
+    </span>  <span class="font-italic">${
+  comment.comment || 'no commet'
+}</span></li>`)
+    .join('') || 'No comment'
+} </ul>          
           </div>
-
          <form class="w-100 d-flex flex-column align-items-center">
          <h2 classs="">Add a comment</h2>
              <input type="text" class="input-name" placeholder="Your Name">

@@ -1,5 +1,3 @@
-function itemCounter(items) {
-  return items.length;
-}
+const itemCounter = (items) => items.length;
 
 export default itemCounter;
