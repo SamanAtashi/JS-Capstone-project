@@ -5,13 +5,10 @@ import makeShowUrl from './getShow';
 import itemCounter from './itemCounter';
 
 const itemsNum = [];
-// todo:-----------> Get data from API
-
-// todo:-----------> Show them on HTML (name + image)
 
 const makeElementsForShow = () => {
   document.querySelector(
-    '#list',
+    '#list'
   ).innerHTML += `<li class="item"><img class="img">
             <div class="title pr-3 py-3 d-flex justify-content-start">
                 <h2 class="name"></h2>
@@ -38,12 +35,10 @@ const makeElementsForShow = () => {
 };
 
 const putShowInside = async (show, num) => {
-  // bring them in
   const temp = await show;
   const tempImg = temp.image.original;
   const tempName = temp.name;
 
-  // put it inside
   const imgElements = document.querySelectorAll('.img');
   const titleElements = document.querySelectorAll('.name');
   const hour = document.querySelectorAll('.hour');
@@ -62,20 +57,15 @@ const putShowInside = async (show, num) => {
 
 window.addEventListener('load', () => {
   for (let i = 1; i < 7; i += 1) {
-    // getting show URL + all details inside it
     const temp = makeShowUrl(i);
-    // populate the DOM
     makeElementsForShow();
-    // add image and name to DOM
     putShowInside(temp, i);
     itemsNum.push(temp);
   }
 
   itemCounter(itemsNum);
-  // retrieve Likes and show on DOM
   const likesList = getLike();
   showLikesInDOM(likesList);
-  // adding likes (posting likes)
   document.querySelectorAll('.likes').forEach((like) => {
     like.addEventListener('click', () => {
       const itemName = like.parentElement.querySelector('h2').innerHTML;
