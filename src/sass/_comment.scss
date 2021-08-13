@@ -1,0 +1,262 @@
+$secondry-color: #f9002b;
+
+.description {
+  position: absolute;
+  transform: translateY(-200px) scale(0);
+  padding: 43px 10px 0;
+  height: 0;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.767);
+
+  h6 {
+    font-size: 15px;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+  }
+
+  p {
+    font-size: 13px;
+  }
+}
+
+.popUp {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 101%;
+  overflow-y: scroll;
+  padding: 100px;
+  background-color: rgba(0, 0, 0, 0.849);
+
+  .pop-img {
+    width: 60%;
+    height: 60vh;
+  }
+
+  .pop-summary {
+    .sam-p {
+      width: 40%;
+      font-size: 0.9rem;
+
+      h6 {
+        font-weight: bold;
+      }
+
+      p {
+        margin-left: 15px;
+      }
+    }
+  }
+
+  h2 {
+    color: rgb(231, 231, 231);
+    font-weight: bold;
+    margin: 20px 0;
+  }
+
+  form {
+    width: 40%;
+    padding: 30px 0;
+
+    input,
+    textarea {
+      background-color: rgba(199, 199, 199, 0.24);
+      border: none;
+      margin: 10px;
+      width: 60%;
+      padding: 15px 10px;
+
+      &:focus {
+        outline: 2px solid $primary;
+        color: white;
+      }
+    }
+
+    .input-name {
+      line-height: 18px;
+    }
+
+    .input-comment {
+      height: 130px;
+    }
+
+    button {
+      color: #ffff;
+      font-size: 0.9rem;
+      padding: 6px 18px;
+      font-weight: 600;
+      border-radius: 3px;
+      margin: 20px 5px;
+
+      &:hover {
+        background-color: transparent;
+        border: 1px solid $secondry-color;
+        transition: all 0.4s ease-in-out;
+      }
+
+      i {
+        position: inherit;
+        color: $secondry-color;
+        font-size: 20px;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .cancel-pop {
+    font-size: 30px;
+    position: absolute;
+    margin: 50px;
+    top: 0;
+    right: 0;
+    z-index: 999;
+
+    &:hover {
+      color: $secondry-color;
+      cursor: pointer;
+    }
+  }
+}
+
+body {
+  background-color: black;
+  color: #858fa2;
+
+  header {
+    .logo {
+      color: $primary;
+      font-size: 40px;
+      padding: 20px 0;
+
+      :hover {
+        color: $secondry-color;
+        transition: all 0.5s ease-in-out;
+      }
+    }
+
+    h1 {
+      font-family: 'Tourney', cursive;
+      font-weight: 400;
+      margin-bottom: 0;
+      background-color: $secondry-color;
+      background-image: linear-gradient(45deg, #f9002b, #1111f3);
+      background-size: 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      &:hover {
+        cursor: pointer;
+        transition: all 0.8s ease-in-out;
+        background-image: linear-gradient(45deg, #1111f3, #f9002b);
+      }
+    }
+  }
+
+  main {
+    padding: 100px 50px;
+
+    .img {
+      width: 300px;
+      height: 400px;
+    }
+
+    #list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 80px 30px;
+
+      li {
+        position: relative;
+        padding: 10px;
+
+        .comment {
+          border: 1px solid #f9002b;
+          background: transparent;
+          color: #ffff;
+          font-size: 0.8rem;
+          padding: 6px 18px;
+          font-weight: 600;
+          border-radius: 3px;
+
+          i {
+            color: $secondry-color;
+            font-size: 20px;
+            margin-right: 5px;
+          }
+
+          &:hover {
+            background-color: $primary;
+            border: 1px solid $primary;
+          }
+        }
+
+        .title {
+          p {
+            padding: 0;
+            margin: 0;
+          }
+
+          h2 {
+            font-size: 1.15rem;
+            padding: 0;
+            margin: 0;
+          }
+
+          a {
+            text-decoration: none;
+
+            &:hover {
+              cursor: pointer;
+              transition: all 0.2s ease;
+              color: $secondry-color;
+            }
+          }
+        }
+
+        &:hover {
+          transform: scale(1.09);
+          box-shadow: 1px 1px 5px 2px #f9002934;
+          cursor: pointer;
+          transition: all 0.5s ease-in-out;
+
+          .description {
+            transition: all 0.5s ease-in-out;
+            height: auto;
+            transform: translate(0) scale(1);
+          }
+        }
+      }
+    }
+  }
+}
+
+.addition-info {
+  background-color: rgba(0, 0, 0, 0.55);
+  color: rgba(233, 234, 236, 0.87);
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  margin-top: 10px;
+
+  .add-icon {
+    font-size: 20px;
+  }
+}
+
+footer {
+  background-color: #f9002946;
+}
+
+.pop-html {
+  overflow-y: hidden;
+}
+
+.pop-html main #list,
+.pop-html header {
+  filter: blur(20px);
+}
